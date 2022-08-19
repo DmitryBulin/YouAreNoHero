@@ -9,9 +9,6 @@ using UnityEngine.Events;
 [CreateAssetMenu(menuName = "Game / Input Reader")]
 public class InputReader : ScriptableObject, GameInput.IGameplayActions, GameInput.IMenuActions
 {
-    // Assign delegate {} to events to initialise them with an empty delegate
-    // so we can skip null checking
-
     // Gameplay
     [SerializeField] private Vector2EventChannelSO MoveEvent = default;
     [SerializeField] private VoidEventChannelSO AttackEvent = default;
@@ -22,6 +19,10 @@ public class InputReader : ScriptableObject, GameInput.IGameplayActions, GameInp
     [SerializeField] private Vector2EventChannelSO NavigateEvent = default;
     [SerializeField] private VoidEventChannelSO SelectEvent = default;
     [SerializeField] private VoidEventChannelSO CancelEvent = default;
+
+    // Action Map events
+    [SerializeField] private BoolEventChannelSO GameplayActionsState = default;
+    [SerializeField] private BoolEventChannelSO MenuActionsState = default;
 
     private GameInput _gameInput;
 
@@ -44,14 +45,14 @@ public class InputReader : ScriptableObject, GameInput.IGameplayActions, GameInp
 
     public void OnMove(InputAction.CallbackContext context)
     {
-        MoveEvent.Invoke(context.ReadValue<Vector2>());
+        MoveEvent?.Invoke(context.ReadValue<Vector2>());
     }
 
     public void OnAttack(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
-            AttackEvent.Invoke();
+            AttackEvent?.Invoke();
         }
     }
 
@@ -59,7 +60,7 @@ public class InputReader : ScriptableObject, GameInput.IGameplayActions, GameInp
     {
         if (context.performed)
         {
-            DodgeEvent.Invoke();
+            DodgeEvent?.Invoke();
         }
     }
 
@@ -67,20 +68,20 @@ public class InputReader : ScriptableObject, GameInput.IGameplayActions, GameInp
     {
         if (context.performed)
         {
-            PauseEvent.Invoke();
+            PauseEvent?.Invoke();
         }
     }
 
     public void OnNavigate(InputAction.CallbackContext context)
     {
-        NavigateEvent.Invoke(context.ReadValue<Vector2>());
+        NavigateEvent?.Invoke(context.ReadValue<Vector2>());
     }
 
     public void OnSelect(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
-            SelectEvent.Invoke();
+            SelectEvent?.Invoke();
         }
     }
 
@@ -88,26 +89,32 @@ public class InputReader : ScriptableObject, GameInput.IGameplayActions, GameInp
     {
         if (context.performed)
         {
-            CancelEvent.Invoke();
+            CancelEvent?.Invoke();
         }
     }
-
+    
     public void EnableGameplayInput()
     {
         _gameInput.Gameplay.Enable();
         _gameInput.Menu.Disable();
+        GameplayActionsState?.Invoke(true);
+        MenuActionsState?.Invoke(false);
     }
 
     public void EnableMenuInput()
     {
         _gameInput.Gameplay.Disable();
         _gameInput.Menu.Enable();
+        GameplayActionsState?.Invoke(false);
+        MenuActionsState?.Invoke(true);
     }
 
     public void DisableAllInput()
     {
         _gameInput.Gameplay.Disable();
         _gameInput.Menu.Disable();
+        GameplayActionsState?.Invoke(false);
+        MenuActionsState?.Invoke(false);
     }
 
 }

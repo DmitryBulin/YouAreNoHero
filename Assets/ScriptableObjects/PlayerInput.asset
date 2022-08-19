@@ -19,3 +19,5 @@ MonoBehaviour:
   NavigateEvent: {fileID: 11400000, guid: 4f737f8cceb78ff4d9a0db21662f8545, type: 2}
   SelectEvent: {fileID: 11400000, guid: 7450c411a96c0304dabd12325d5a2169, type: 2}
   CancelEvent: {fileID: 11400000, guid: 57e96ec4996515c48bb797d2654b5514, type: 2}
+  GameplayActionsState: {fileID: 0}
+  MenuActionsState: {fileID: 11400000, guid: 47d3187b88fc8c54eb6f08a2faa36221, type: 2}

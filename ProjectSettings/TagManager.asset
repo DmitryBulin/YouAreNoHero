@@ -11,11 +11,11 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Environment
+  - Player
+  - PlayerAttack
+  - Boss
+  - BossAttack
   - 
   - 
   - 
@@ -40,4 +40,13 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Environment
+    uniqueID: 2988177459
+    locked: 0
+  - name: Creatures
+    uniqueID: 1042971815
+    locked: 0
+  - name: Projectiles
+    uniqueID: 2539084931
     locked: 0

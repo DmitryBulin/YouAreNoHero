@@ -13,9 +13,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private FloatVariable _dodgeCooldown;
     [SerializeField] private FloatVariable _movementSpeed;
     
-    // To ensure that input reader is loaded
-    [SerializeField] private InputReader _inputReader = default;
-
     [HideInInspector] public bool CanMove { get; set; }
     private Rigidbody2D _rigidbody;
     private bool _isDodging;
