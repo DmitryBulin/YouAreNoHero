@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4be154bcdb7f29c4cab3bca6f8430982, type: 3}
-  m_Name: InvincibilityTime
+  m_Name: BossHealth
   m_EditorClassIdentifier: 
-  _initialValue: 0
+  _initialValue: 1000
   _minValue: 0
-  _maxValue: 0.45
-  _onValueChanged: {fileID: 0}
-  _onMinValueReached: {fileID: 11400000, guid: 8dc1d0fd1facd0441a93ed76abc308ea, type: 2}
-  _onMaxValueReached: {fileID: 11400000, guid: 3a43aeffcaed13443b88d3ed66b979a3, type: 2}
+  _maxValue: 1000
+  _onValueChanged: {fileID: 11400000, guid: 988990cf99a29b642b731a72b1a75433, type: 2}
+  _onMinValueReached: {fileID: 11400000, guid: 1fe00247e18ad5c41852e11763900223, type: 2}
+  _onMaxValueReached: {fileID: 0}

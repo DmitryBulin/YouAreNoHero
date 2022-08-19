@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4be154bcdb7f29c4cab3bca6f8430982, type: 3}
-  m_Name: DodgeCooldown
+  m_Name: BossInvincibilityTime
   m_EditorClassIdentifier: 
   _initialValue: 0
   _minValue: 0
-  _maxValue: 1
-  _onValueChanged: {fileID: 11400000, guid: e3a1094ce08f22c44b88204fc9035d6f, type: 2}
+  _maxValue: 0.25
+  _onValueChanged: {fileID: 0}
   _onMinValueReached: {fileID: 0}
-  _onMaxValueReached: {fileID: 11400000, guid: f230d40b08d1b6641bac35107fe13bb4, type: 2}
+  _onMaxValueReached: {fileID: 0}

@@ -7,7 +7,6 @@ using UnityEngine;
 
 public class LimitedLifetime : MonoBehaviour
 {
-    [Tooltip("It takes the maximum value of the variable")]
     [SerializeField] private FloatVariable _lifeTime = default;
 
     private void OnEnable()
@@ -17,7 +16,7 @@ public class LimitedLifetime : MonoBehaviour
 
     private IEnumerator TickDown()
     {
-        float time = _lifeTime.MaximumValue;
+        float time = _lifeTime.Value;
         
         while (time > 0f)
         {

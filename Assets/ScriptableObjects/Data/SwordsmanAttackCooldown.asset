@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4be154bcdb7f29c4cab3bca6f8430982, type: 3}
   m_Name: SwordsmanAttackCooldown
   m_EditorClassIdentifier: 
-  _initialValue: 0
+  _initialValue: 0.65
   _minValue: 0
-  _maxValue: 0.65
+  _maxValue: 0
   _onValueChanged: {fileID: 0}
   _onMinValueReached: {fileID: 0}
   _onMaxValueReached: {fileID: 0}

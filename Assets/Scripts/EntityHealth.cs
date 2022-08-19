@@ -26,7 +26,7 @@ public class EntityHealth : MonoBehaviour
         GetComponent<Collider2D>().enabled = false;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.GetComponent<AttackProjectile>() == null)
         {
@@ -36,7 +36,9 @@ public class EntityHealth : MonoBehaviour
 
         if (!_canRecieveDamage || !_isAlive) { return; }
 
+
         float damage = collision.GetComponent<AttackProjectile>().DealDamage();
+        Debug.Log(damage);
         _health.ChangeValue(-damage);
         StartCoroutine(Invincibility());
     }
@@ -45,7 +47,9 @@ public class EntityHealth : MonoBehaviour
     {
         float time = 0f;
 
+        _canRecieveDamage = false;
         _invincibilityTime.SetMaximum();
+
         while (time < _invincibilityTime.MaximumValue)
         {
             _invincibilityTime.ChangeValue(-Time.deltaTime);

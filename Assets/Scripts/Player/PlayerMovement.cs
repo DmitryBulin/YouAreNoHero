@@ -33,7 +33,7 @@ public class PlayerMovement : MonoBehaviour
         if (_isDodging || !_canDodge) { return; }
         _isDodging = true;
         _canDodge = false;
-        _dodgeCooldown.SetMaximum();
+        _dodgeCooldown.ChangeValue(-1f);
         StartCoroutine(DodgeVelocityChange());
     }
 
@@ -73,7 +73,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (!_canDodge)
         {
-            _dodgeCooldown.ChangeValue(-Time.deltaTime);
+            _dodgeCooldown.ChangeValue(Time.deltaTime);
         }
 
         if (!_isDodging)

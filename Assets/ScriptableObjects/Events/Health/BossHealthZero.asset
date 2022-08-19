@@ -9,12 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4be154bcdb7f29c4cab3bca6f8430982, type: 3}
-  m_Name: RegularProjectileLifetime
+  m_Script: {fileID: 11500000, guid: 1e8048faafa7f094faf7b7d43c8569d5, type: 3}
+  m_Name: BossHealthZero
   m_EditorClassIdentifier: 
-  _initialValue: 0.3
-  _minValue: 0
-  _maxValue: 0
-  _onValueChanged: {fileID: 0}
-  _onMinValueReached: {fileID: 0}
-  _onMaxValueReached: {fileID: 0}

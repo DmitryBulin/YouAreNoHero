@@ -41,7 +41,9 @@ public class PlayerAttack : MonoBehaviour
     {
         float time = 0f;
 
+        _onCooldown = true;
         _attackCooldown.SetMaximum();
+
         while (time < _attackCooldown.MaximumValue)
         {
             time += Time.deltaTime;

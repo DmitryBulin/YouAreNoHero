@@ -9,6 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e8048faafa7f094faf7b7d43c8569d5, type: 3}
-  m_Name: InvincibilityEnded
+  m_Script: {fileID: 11500000, guid: 3f4177cae549edc449903dce0dab2fce, type: 3}
+  m_Name: BossHealthChanged
   m_EditorClassIdentifier: 
