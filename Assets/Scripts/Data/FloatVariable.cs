@@ -11,8 +11,10 @@ public class FloatVariable : ScriptableObject
     [SerializeField] private VoidEventChannelSO _onMaxValueReached;
     
     public float Value { get; private set; }
+    public float MinimumValue { get => _minValue; }
+    public float MaximumValue { get => _maxValue; }
 
-    private void Awake()
+    private void OnEnable()
     {
         Value = _initialValue;
     }

@@ -1,15 +1,22 @@
 using System.Collections;
 using UnityEngine;
 
+/// <summary>
+/// This class recieves movement and dodge instructions and proccess them 
+/// </summary>
+
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMovement : MonoBehaviour
 {
     // This curve represents percentage of movement speed during dodge (1 - equal to movement speed, 2 - two times the movement speed)
     [SerializeField] private AnimationCurve _dodgeVelocityCurve;
     [SerializeField] private FloatVariable _dodgeCooldown;
-    [SerializeField] private FloatVariable _dodgeTime;
     [SerializeField] private FloatVariable _movementSpeed;
+    
+    // To ensure that input reader is loaded
+    [SerializeField] private InputReader _inputReader = default;
 
+    [HideInInspector] public bool CanMove { get; set; }
     private Rigidbody2D _rigidbody;
     private bool _isDodging;
     private bool _canDodge;
@@ -20,6 +27,8 @@ public class PlayerMovement : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody2D>();
         _isDodging = false;
         _canDodge = true;
+        _movementVector = Vector2.zero;
+        CanMove = true;
     }
 
     public void Dodge()
@@ -63,6 +72,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        if (!CanMove) { return; }
+
         if (!_canDodge)
         {
             _dodgeCooldown.ChangeValue(-Time.deltaTime);
