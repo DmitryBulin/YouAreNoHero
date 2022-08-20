@@ -9,12 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4be154bcdb7f29c4cab3bca6f8430982, type: 3}
-  m_Name: BossAttackOffset
+  m_Script: {fileID: 11500000, guid: da182e41b2bfe06458401be17e2d1abf, type: 3}
+  m_Name: CloseRangeWeapon
   m_EditorClassIdentifier: 
-  _initialValue: 0
-  _minValue: 0
-  _maxValue: 2
-  _onValueChanged: {fileID: 0}
-  _onMinValueReached: {fileID: 0}
-  _onMaxValueReached: {fileID: 0}
+  _attackPrefabs:
+  - {fileID: 2261725159771314608, guid: 7ddb9c60074f9db45b877d8d2e793e11, type: 3}

@@ -9,6 +9,7 @@ using UnityEngine.Events;
 public class BoolEventListener : MonoBehaviour
 {
     [SerializeField] private BoolEventChannelSO _channel = default;
+    [SerializeField] private bool _isInverted;
     [SerializeField] private UnityEvent<bool> _onEventRaised;
 
     private void OnEnable()
@@ -29,7 +30,7 @@ public class BoolEventListener : MonoBehaviour
 
     public void Respond(bool variable)
     {
-        _onEventRaised?.Invoke(variable);
+        _onEventRaised?.Invoke(_isInverted ? !variable : variable);
     }
 
 }

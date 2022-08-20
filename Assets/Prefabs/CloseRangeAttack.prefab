@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &122822802445852218
+--- !u!1 &2261725159771314608
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,38 +8,85 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3560031021984844929}
-  - component: {fileID: 7279434598765479463}
-  - component: {fileID: 2186669466644199429}
-  m_Layer: 8
+  - component: {fileID: 2261725159771314613}
+  - component: {fileID: 2261725159771314612}
+  m_Layer: 10
+  m_Name: CloseRangeAttack
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2261725159771314613
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2261725159771314608}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7322927427325120780}
+  - {fileID: 4445018514714504437}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2261725159771314612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2261725159771314608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54f172b1ced94cd48bd141243c8ab0cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _lifeTime: {fileID: 11400000, guid: 6d832a087d1f9f84798b6e93a329d023, type: 2}
+--- !u!1 &2695699950145351044
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4445018514714504437}
+  - component: {fileID: 4068198562617012238}
+  - component: {fileID: 1900987979946085827}
+  m_Layer: 10
   m_Name: Hitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3560031021984844929
+--- !u!4 &4445018514714504437
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 122822802445852218}
+  m_GameObject: {fileID: 2695699950145351044}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.4166667, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2261725159771314613}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!60 &7279434598765479463
+--- !u!60 &4068198562617012238
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 122822802445852218}
+  m_GameObject: {fileID: 2695699950145351044}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -62,66 +109,19 @@ PolygonCollider2D:
       - {x: 0.55, y: 0}
       - {x: 1, y: 1.5}
       - {x: -1, y: 1.5}
---- !u!114 &2186669466644199429
+--- !u!114 &1900987979946085827
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 122822802445852218}
+  m_GameObject: {fileID: 2695699950145351044}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1e2c2cf07828a854fbb1399606b9388d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damageOfAttack: {fileID: 11400000, guid: 7bbdd557992d7cd4faab6729f2d8db02, type: 2}
---- !u!1 &2261725159771314608
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2261725159771314613}
-  - component: {fileID: 2261725159771314612}
-  m_Layer: 8
-  m_Name: SwordProjectile
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2261725159771314613
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2261725159771314608}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 7322927427325120780}
-  - {fileID: 3560031021984844929}
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2261725159771314612
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2261725159771314608}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54f172b1ced94cd48bd141243c8ab0cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _lifeTime: {fileID: 11400000, guid: 6d832a087d1f9f84798b6e93a329d023, type: 2}
+  _damageOfAttack: {fileID: 11400000, guid: 45758b69dd257fd469aa2f75b8aa7d4d, type: 2}
 --- !u!1 &9152983611543661837
 GameObject:
   m_ObjectHideFlags: 0
@@ -132,7 +132,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7322927427325120780}
   - component: {fileID: 362689880813780335}
-  m_Layer: 8
+  m_Layer: 6
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -147,8 +147,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9152983611543661837}
   m_LocalRotation: {x: -0, y: -0, z: 0.3781218, w: 0.92575586}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
-  m_LocalScale: {x: 2.3080347, y: 2.3080347, z: 2.3080347}
+  m_LocalPosition: {x: 0.0023, y: 1.1498667, z: 0}
+  m_LocalScale: {x: 2.9951367, y: 2.9951367, z: 2.9951367}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2261725159771314613}

@@ -43,7 +43,6 @@ public class EntityHealth : MonoBehaviour
 
 
         float damage = collision.GetComponent<AttackProjectile>().DealDamage();
-        Debug.Log(damage);
         _health.ChangeValue(-damage);
         StartCoroutine(Invincibility());
     }

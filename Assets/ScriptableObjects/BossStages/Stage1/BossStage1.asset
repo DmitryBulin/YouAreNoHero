@@ -9,12 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4be154bcdb7f29c4cab3bca6f8430982, type: 3}
-  m_Name: BossAttackOffset
+  m_Script: {fileID: 11500000, guid: 6ea1c3dc22fc2684f91db67816d54854, type: 3}
+  m_Name: BossStage1
   m_EditorClassIdentifier: 
-  _initialValue: 0
-  _minValue: 0
-  _maxValue: 2
-  _onValueChanged: {fileID: 0}
-  _onMinValueReached: {fileID: 0}
-  _onMaxValueReached: {fileID: 0}
+  _bossStates:
+  - {fileID: 11400000, guid: 1c9f36b12319857408075adbb03f7a0f, type: 2}
+  HealthBoundaries: {fileID: 11400000, guid: d1f87cf701048a34a95ea8d0508a851d, type: 2}

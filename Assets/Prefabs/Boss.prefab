@@ -9,7 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6553506055807253232}
-  - component: {fileID: 370953365715058268}
+  - component: {fileID: 307653222}
+  - component: {fileID: 307653224}
+  - component: {fileID: 307653225}
   m_Layer: 6
   m_Name: AttackPosition
   m_TagString: Untagged
@@ -32,7 +34,7 @@ Transform:
   m_Father: {fileID: 7844963705920745150}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &370953365715058268
+--- !u!114 &307653222
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,10 +43,58 @@ MonoBehaviour:
   m_GameObject: {fileID: 2954547481330142085}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf682c90928790244846e5b97dd2a5ac, type: 3}
+  m_Script: {fileID: 11500000, guid: d76c3be66170b5c4c8c125251747ce0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _offset: {fileID: 11400000, guid: 370352984c02e844a85d65759b3a1196, type: 2}
+  _stages:
+  - {fileID: 11400000, guid: a4a4fdb966c99664a914db44ea21b4a6, type: 2}
+  _attackCooldown: {fileID: 11400000, guid: 69f5d7f79ac8e19458bc6aa9c7af5fb6, type: 2}
+  _bossHealth: {fileID: 11400000, guid: 23124fbf60fd0c04fafff9f5fac914a9, type: 2}
+  _newStageChannel: {fileID: 0}
+  _bossAttackChannel: {fileID: 11400000, guid: a46ab4fc99aaa53428c88c486bd3474b, type: 2}
+--- !u!114 &307653224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2954547481330142085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5881edf23d70994e8d0aa8971d2746f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _channel: {fileID: 11400000, guid: a46ab4fc99aaa53428c88c486bd3474b, type: 2}
+  _localPosition: 1
+--- !u!114 &307653225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2954547481330142085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 660b321ceb4e6f344a6836dcb59c1e38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _channel: {fileID: 11400000, guid: 74c8c994762511e46acdc0c516e92ed2, type: 2}
+  _normalised: 0
+  _onEventRaised:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 307653222}
+        m_TargetAssemblyTypeName: BossAttack, Assembly-CSharp
+        m_MethodName: UpdateTargetDirection
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4924165897516163214
 GameObject:
   m_ObjectHideFlags: 0
@@ -274,8 +324,8 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_LinearDrag: 20
+  m_AngularDrag: 0
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0

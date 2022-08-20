@@ -1356,6 +1356,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _channel: {fileID: 11400000, guid: 47d3187b88fc8c54eb6f08a2faa36221, type: 2}
+  _isInverted: 0
   _onEventRaised:
     m_PersistentCalls:
       m_Calls:
@@ -2505,6 +2506,25 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1717248983 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3157991320931202844, guid: 98252d64f0057524ba5016daa37af1f1, type: 3}
+  m_PrefabInstance: {fileID: 3157991320580114952}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1717248994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1717248983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5881edf23d70994e8d0aa8971d2746f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _channel: {fileID: 11400000, guid: 74c8c994762511e46acdc0c516e92ed2, type: 2}
+  _localPosition: 0
 --- !u!1 &1862417880
 GameObject:
   m_ObjectHideFlags: 0
@@ -2822,6 +2842,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2475755318978693306, guid: 98252d64f0057524ba5016daa37af1f1, type: 3}
+      propertyPath: _isInverted
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2475755318978693306, guid: 98252d64f0057524ba5016daa37af1f1, type: 3}
+      propertyPath: _onEventRaised.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: set_CanAttack
+      objectReference: {fileID: 0}
     - target: {fileID: 3157991320931202844, guid: 98252d64f0057524ba5016daa37af1f1, type: 3}
       propertyPath: m_Name
       value: Player
@@ -2883,17 +2911,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 307653222, guid: ffdcf511ec1d82a48a21650e5d4fa9cb, type: 3}
+      propertyPath: _initialCooldown
+      value: 
+      objectReference: {fileID: 11400000, guid: 69f5d7f79ac8e19458bc6aa9c7af5fb6, type: 2}
     - target: {fileID: 1494940523060583942, guid: ffdcf511ec1d82a48a21650e5d4fa9cb, type: 3}
       propertyPath: m_BodyType
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1494940523060583942, guid: ffdcf511ec1d82a48a21650e5d4fa9cb, type: 3}
-      propertyPath: m_LinearDrag
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 1494940523060583942, guid: ffdcf511ec1d82a48a21650e5d4fa9cb, type: 3}
-      propertyPath: m_AngularDrag
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7844963705920745146, guid: ffdcf511ec1d82a48a21650e5d4fa9cb, type: 3}
       propertyPath: m_Name

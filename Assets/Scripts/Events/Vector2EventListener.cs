@@ -9,6 +9,7 @@ using UnityEngine.Events;
 public class Vector2EventListener : MonoBehaviour
 {
     [SerializeField] private Vector2EventChannelSO _channel = default;
+    [SerializeField] private bool _normalised;
     [SerializeField] private UnityEvent<Vector2> _onEventRaised;
 
     private void OnEnable()
@@ -29,7 +30,7 @@ public class Vector2EventListener : MonoBehaviour
 
     public void Respond(Vector2 variable)
     {
-        _onEventRaised?.Invoke(variable);
+        _onEventRaised?.Invoke(_normalised ? variable.normalized : variable);
     }
 
 }
