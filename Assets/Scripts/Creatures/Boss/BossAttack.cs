@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class BossAttack : MonoBehaviour
+public class BossAttack : MonoBehaviour, IPausable
 {
     [Tooltip("Stages have to be sorted by health")]
     [SerializeField] private BossStage[] _stages;
@@ -17,19 +17,31 @@ public class BossAttack : MonoBehaviour
     private bool _onCooldown;
     private BossStage _currentStage;
     private FloatVariable _attackCooldown;
+    private bool _isPaused;
 
     private void Awake()
     {
         CanAttack = true;
         _currentStage = default;
+        _isPaused = false;
 
         UpdateHealth();
         StartCoroutine(Cooldown(_initialCooldown));
     }
 
+    public void Pause()
+    {
+        _isPaused = true;
+    }
+
+    public void Unpause()
+    {
+        _isPaused = false;
+    }
+
     private void Update()
     {
-        if (_onCooldown) { return; }
+        if (_onCooldown || _isPaused) { return; }
         Attack(); 
     }
 
@@ -48,7 +60,7 @@ public class BossAttack : MonoBehaviour
             _newStageChannel.Invoke();
         }
     }
-
+    
     private void Attack()
     {
         if (!CanAttack) { return; }
@@ -84,7 +96,10 @@ public class BossAttack : MonoBehaviour
         _onCooldown = true;
         while (time < cooldownTime.MaximumValue)
         {
-            time += Time.deltaTime;
+            if (!_isPaused)
+            {
+                time += Time.deltaTime;
+            }
             yield return null;
         }
 

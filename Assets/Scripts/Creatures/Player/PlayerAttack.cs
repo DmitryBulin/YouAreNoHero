@@ -5,7 +5,7 @@ using UnityEngine;
 /// This class manages attack instructions for player
 /// </summary>
 
-public class PlayerAttack : MonoBehaviour
+public class PlayerAttack : MonoBehaviour, IPausable
 {
     [SerializeField] private Weapon _currentWeapon = default;
     [SerializeField] private FloatVariable _attackCooldown = default;
@@ -14,12 +14,24 @@ public class PlayerAttack : MonoBehaviour
 
     private Vector3 _attackDirection;
     private bool _onCooldown;
+    private bool _isPaused;
 
     private void Awake()
     {
         CanAttack = true;
         _onCooldown = false;
+        _isPaused = false;
         _attackDirection = new Vector2(0, 1);
+    }
+
+    public void Pause()
+    {
+        _isPaused = true;
+    }
+
+    public void Unpause()
+    {
+        _isPaused = false;
     }
 
     public void ChangeDirection(Vector2 newDirection)
@@ -30,7 +42,7 @@ public class PlayerAttack : MonoBehaviour
 
     public void Attack()
     {
-        if (!CanAttack || _onCooldown) { return; }
+        if (!CanAttack || _onCooldown || _isPaused) { return; }
 
         _currentWeapon.CreateAttack(transform.position, _attackDirection);
 
@@ -45,7 +57,10 @@ public class PlayerAttack : MonoBehaviour
 
         while (time < _attackCooldown.MaximumValue)
         {
-            time += Time.deltaTime;
+            if (!_isPaused)
+            {
+                time += Time.deltaTime;
+            }
             yield return null;
 
         }

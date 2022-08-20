@@ -6,7 +6,7 @@ using UnityEngine;
 /// </summary>
 
 [RequireComponent(typeof(Collider2D))]
-public class EntityHealth : MonoBehaviour
+public class EntityHealth : MonoBehaviour, IPausable
 {
     [SerializeField] private FloatVariable _health;
 
@@ -17,12 +17,24 @@ public class EntityHealth : MonoBehaviour
 
     private bool _isAlive;
     private bool _canRecieveDamage;
+    private bool _isPaused;
 
     private void Awake()
     {
         _isAlive = true;
         _canRecieveDamage = true;
+        _isPaused = false;
         IsInvincible = false;
+    }
+
+    public void Pause()
+    {
+        _isPaused = true;
+    }
+
+    public void Unpause()
+    {
+        _isPaused = false;
     }
 
     public void Died()
@@ -39,7 +51,7 @@ public class EntityHealth : MonoBehaviour
             return;
         }
 
-        if (!_canRecieveDamage || !_isAlive || IsInvincible) { return; }
+        if (!_canRecieveDamage || !_isAlive || IsInvincible || _isPaused) { return; }
 
 
         float damage = collision.GetComponent<AttackProjectile>().DealDamage();
@@ -56,8 +68,11 @@ public class EntityHealth : MonoBehaviour
 
         while (time < _invincibilityTime.MaximumValue)
         {
-            _invincibilityTime.ChangeValue(-Time.deltaTime);
-            time += Time.deltaTime;
+            if (!_isPaused)
+            {
+                _invincibilityTime.ChangeValue(-Time.deltaTime);
+                time += Time.deltaTime;
+            }
             yield return null;
         }
 

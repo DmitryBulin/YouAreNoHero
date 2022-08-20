@@ -6,7 +6,7 @@ using UnityEngine;
 /// </summary>
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : MonoBehaviour, IPausable
 {
     // This curve represents percentage of movement speed during dodge (1 - equal to movement speed, 2 - two times the movement speed)
     [SerializeField] private AnimationCurve _dodgeVelocityCurve;
@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D _rigidbody;
     private bool _isDodging;
     private bool _canDodge;
+    private bool _isPaused;
     private Vector2 _movementVector;
 
     private void Awake()
@@ -25,13 +26,25 @@ public class PlayerMovement : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody2D>();
         _isDodging = false;
         _canDodge = true;
+        _isPaused = false;
         _movementVector = Vector2.zero;
         CanMove = true;
     }
 
+    public void Pause()
+    {
+        _isPaused = true;
+        _rigidbody.velocity = Vector2.zero;
+    }
+
+    public void Unpause()
+    {
+        _isPaused = false;
+    }
+
     public void Dodge()
     {
-        if (_isDodging || !_canDodge || _movementVector.Equals(Vector2.zero)) { return; }
+        if (_isDodging || !_canDodge || _isPaused || _movementVector.Equals(Vector2.zero)) { return; }
 
         _isDodging = true;
         _canDodge = false;
@@ -48,9 +61,12 @@ public class PlayerMovement : MonoBehaviour
         _dodgeChannel.Invoke(true);
         while (time < _dodgeVelocityCurve[_dodgeVelocityCurve.length - 1].time)
         {
-            _rigidbody.velocity = dodgeDirection * _movementSpeed.Value * _dodgeVelocityCurve.Evaluate(time);
+            if (!_isPaused)
+            {
+                _rigidbody.velocity = dodgeDirection * _movementSpeed.Value * _dodgeVelocityCurve.Evaluate(time);
+                time += Time.deltaTime;
+            }
             yield return null;
-            time += Time.deltaTime;
         }
 
         FinishedDodging();
@@ -74,7 +90,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        if (!CanMove) { return; }
+        if (!CanMove || _isPaused) { return; }
 
         if (!_canDodge)
         {

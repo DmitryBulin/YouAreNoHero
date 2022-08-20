@@ -5,9 +5,21 @@ using UnityEngine;
 /// This class is to put on the object to make it expire over time
 /// </summary>
 
-public class LimitedLifetime : MonoBehaviour
+public class LimitedLifetime : MonoBehaviour, IPausable
 {
     [SerializeField] private FloatVariable _lifeTime = default;
+
+    private bool _isPaused;
+
+    public void Pause()
+    {
+        _isPaused = true;
+    }
+
+    public void Unpause()
+    {
+        _isPaused = false;
+    }
 
     private void OnEnable()
     {
@@ -20,7 +32,10 @@ public class LimitedLifetime : MonoBehaviour
         
         while (time > 0f)
         {
-            time -= Time.deltaTime;
+            if (!_isPaused)
+            {
+                time -= Time.deltaTime;
+            }
             yield return null;
         }
 
