@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private AnimationCurve _dodgeVelocityCurve;
     [SerializeField] private FloatVariable _dodgeCooldown;
     [SerializeField] private FloatVariable _movementSpeed;
+    [SerializeField] private BoolEventChannelSO _dodgeChannel;
     
     [HideInInspector] public bool CanMove { get; set; }
     private Rigidbody2D _rigidbody;
@@ -30,10 +31,12 @@ public class PlayerMovement : MonoBehaviour
 
     public void Dodge()
     {
-        if (_isDodging || !_canDodge) { return; }
+        if (_isDodging || !_canDodge || _movementVector.Equals(Vector2.zero)) { return; }
+
         _isDodging = true;
         _canDodge = false;
         _dodgeCooldown.ChangeValue(-1f);
+
         StartCoroutine(DodgeVelocityChange());
     }
 
@@ -42,6 +45,7 @@ public class PlayerMovement : MonoBehaviour
         float time = 0f;
         Vector2 dodgeDirection = _movementVector;
 
+        _dodgeChannel.Invoke(true);
         while (time < _dodgeVelocityCurve[_dodgeVelocityCurve.length - 1].time)
         {
             _rigidbody.velocity = dodgeDirection * _movementSpeed.Value * _dodgeVelocityCurve.Evaluate(time);
@@ -55,6 +59,7 @@ public class PlayerMovement : MonoBehaviour
     public void FinishedDodging()
     {
         _isDodging = false;
+        _dodgeChannel.Invoke(false);
     }
 
     public void DodgeCooldownZero()

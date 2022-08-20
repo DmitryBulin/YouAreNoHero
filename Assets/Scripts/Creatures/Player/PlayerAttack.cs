@@ -10,14 +10,14 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private Weapon _currentWeapon = default;
     [SerializeField] private FloatVariable _attackCooldown = default;
 
-    public bool CanAttack;
+    [HideInInspector] public bool CantAttack { get; set; }
 
     private Vector3 _attackDirection;
     private bool _onCooldown;
 
     private void Awake()
     {
-        CanAttack = true;
+        CantAttack = false;
         _onCooldown = false;
         _attackDirection = new Vector2(0, 1);
     }
@@ -30,7 +30,7 @@ public class PlayerAttack : MonoBehaviour
 
     public void Attack()
     {
-        if (!CanAttack || _onCooldown) { return; }
+        if (CantAttack || _onCooldown) { return; }
 
         _currentWeapon.CreateAttack(transform.position, _attackDirection);
 
@@ -42,12 +42,10 @@ public class PlayerAttack : MonoBehaviour
         float time = 0f;
 
         _onCooldown = true;
-        _attackCooldown.SetMaximum();
 
         while (time < _attackCooldown.MaximumValue)
         {
             time += Time.deltaTime;
-            _attackCooldown.ChangeValue(-Time.deltaTime);
             yield return null;
 
         }

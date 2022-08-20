@@ -2822,18 +2822,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3157991319783299873, guid: 98252d64f0057524ba5016daa37af1f1, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3157991319783299873, guid: 98252d64f0057524ba5016daa37af1f1, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3157991319783299873, guid: 98252d64f0057524ba5016daa37af1f1, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3157991320931202844, guid: 98252d64f0057524ba5016daa37af1f1, type: 3}
       propertyPath: m_Name
       value: Player
@@ -2882,6 +2870,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4123697733626746020, guid: 98252d64f0057524ba5016daa37af1f1, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 98252d64f0057524ba5016daa37af1f1, type: 3}
 --- !u!1001 &7844963706852729219
@@ -2891,6 +2883,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1494940523060583942, guid: ffdcf511ec1d82a48a21650e5d4fa9cb, type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1494940523060583942, guid: ffdcf511ec1d82a48a21650e5d4fa9cb, type: 3}
+      propertyPath: m_LinearDrag
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1494940523060583942, guid: ffdcf511ec1d82a48a21650e5d4fa9cb, type: 3}
+      propertyPath: m_AngularDrag
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7844963705920745146, guid: ffdcf511ec1d82a48a21650e5d4fa9cb, type: 3}
       propertyPath: m_Name
       value: Boss

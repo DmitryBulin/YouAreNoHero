@@ -9,7 +9,11 @@ using UnityEngine;
 public class EntityHealth : MonoBehaviour
 {
     [SerializeField] private FloatVariable _health;
+
+    [Tooltip("Time of invincibility after getting hit")]
     [SerializeField] private FloatVariable _invincibilityTime;
+
+    [HideInInspector] public bool IsInvincible { get; set; }
 
     private bool _isAlive;
     private bool _canRecieveDamage;
@@ -18,6 +22,7 @@ public class EntityHealth : MonoBehaviour
     {
         _isAlive = true;
         _canRecieveDamage = true;
+        IsInvincible = false;
     }
 
     public void Died()
@@ -34,7 +39,7 @@ public class EntityHealth : MonoBehaviour
             return;
         }
 
-        if (!_canRecieveDamage || !_isAlive) { return; }
+        if (!_canRecieveDamage || !_isAlive || IsInvincible) { return; }
 
 
         float damage = collision.GetComponent<AttackProjectile>().DealDamage();
