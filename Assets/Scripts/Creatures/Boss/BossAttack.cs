@@ -30,7 +30,6 @@ public class BossAttack : MonoBehaviour
     private void Update()
     {
         if (_onCooldown) { return; }
-        
         Attack(); 
     }
 

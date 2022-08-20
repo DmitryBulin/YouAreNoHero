@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bossStates:
   - {fileID: 11400000, guid: 1c9f36b12319857408075adbb03f7a0f, type: 2}
+  - {fileID: 11400000, guid: ca1e519973d121040aa3fb7589a535a9, type: 2}
   HealthBoundaries: {fileID: 11400000, guid: d1f87cf701048a34a95ea8d0508a851d, type: 2}

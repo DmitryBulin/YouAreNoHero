@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: beddbfe0f46a6b848bd97f52e254e2fa, type: 3}
+  m_Name: RangedAttack
+  m_EditorClassIdentifier: 
+  AttackDistance: {fileID: 11400000, guid: 027e6ebb6b767944f8f41515e964dd32, type: 2}
+  StateWeight: 65
+  CanChain: 1
+  AttackCooldown: {fileID: 11400000, guid: 25bf4cb9cda67a8459c8dc43eda2bdd9, type: 2}
+  StateWeapon: {fileID: 11400000, guid: b5a670332e0864a42860843cbea1d7f2, type: 2}

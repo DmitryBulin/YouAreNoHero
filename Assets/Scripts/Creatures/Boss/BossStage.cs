@@ -28,9 +28,9 @@ public class BossStage : ScriptableObject
                 || distance > _bossStates[i].AttackDistance.MaximumValue) { continue; }
             totalWeight += _bossStates[i].StateWeight;
         }
-
+        
         int targetWeight = Random.Range(0, totalWeight);
-
+        
         for (int i = 0; i < _bossStates.Length; ++i)
         {
             if (i == _previousIndex && !_bossStates[_previousIndex].CanChain
